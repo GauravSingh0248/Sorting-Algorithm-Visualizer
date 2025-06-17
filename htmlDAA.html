@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sorting Visualizer</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CssDAA.css" />
+</head>
+<body>
+    <div id="introSlide" class="intro-slide">
+        <div class="intro-content">
+            <h1>SORTING ALGORITHM VISUALIZER</h1>
+            <h2>by <span class="clickable-team-name" onclick="showTeamInfo()">Algorithm Avengers</span></h2>
+
+            <div class="team-section">
+                <h3>Team Members</h3>
+                <ul class="team-members">
+                    <li class="clickable-member" onclick="showMemberInfo('payal')">Payal Maletha</li>
+                    <li class="clickable-member" onclick="showMemberInfo('gaurav')">Gaurav Singh</li>
+                    <li class="clickable-member" onclick="showMemberInfo('ritik')">Ritik Bhandari</li>
+                    <li class="clickable-member" onclick="showMemberInfo('saksham')">Saksham Godiyal</li>
+                </ul>
+            </div>
+            
+            <div class="project-details">
+                <h3>About This Project</h3>
+                <p class="project-description">
+                    A visual tool to understand and compare different sorting algorithms.
+                    Watch how algorithms like Bubble Sort, Quick Sort, and Merge Sort work in real-time.
+                </p>
+                
+                <div class="features-section">
+                    <h3>Key Features</h3>
+                    <ul class="features-list">
+                        <li>Visualize 7 different sorting algorithms</li>
+                        <li>Step-by-step execution mode</li>
+                        <li>Custom input arrays</li>
+                        <li>Performance comparison between algorithms</li>
+                        <li>Real-time metrics (comparisons, time complexity)</li>
+                        <li>Dark and light theme options</li>
+                    </ul>
+                </div>
+                
+                <div class="educational-value">
+                    <h3>Educational Value</h3>
+                    <p>
+                        This visualizer helps students and developers understand the inner workings of 
+                        sorting algorithms. By seeing the algorithms in action, users can grasp concepts 
+                        like time complexity, space complexity, and algorithm efficiency in a more 
+                        intuitive way than through code alone.
+                    </p>
+                </div>
+            </div>
+            
+            <button id="startButton" class="start-button" onclick="hideIntroSlide()">Start Exploring</button>
+        </div>
+    </div>
+
+    <!-- Pop-up Modal for Team/Member Info -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="heading">
+        <h1>SORTING ALGORITHM VISUALIZER</h1>
+        <h2 class="subtitle">by Algorithm Avengers</h2>
+    </div>
+
+    <div class="description">
+        <h2 id="algorithmTitle">What is Bubble Sort?</h2>
+        <p id="algorithmDescription">Bubble Sort is a simple sorting algorithm that repeatedly compares two adjacent elements and swaps them if they are in the wrong order. This process continues until the list is sorted. It's named 'bubble' because the largest values 'bubble up' to the end.</p>
+        
+        <div class="algorithm-details">
+            <h3>Algorithm Steps:</h3>
+            <ol id="algorithmSteps" class="algorithm-steps">
+                <!-- Steps will be populated by JavaScript -->
+            </ol>
+            
+            <div id="complexityInfo" class="complexity-info">
+                <!-- Complexity info will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="algorithm-selector">
+        <label for="algorithm">Choose Sorting Algorithm:</label>
+        <select id="algorithm" onchange="updateSelectedAlgorithm()">
+            <option value="bubbleSort">Bubble Sort</option>
+            <option value="selectionSort">Selection Sort</option>
+            <option value="insertionSort">Insertion Sort</option>
+            <option value="mergeSort">Merge Sort</option>
+            <option value="quickSort">Quick Sort</option>
+            <option value="heapSort">Heap Sort</option>
+            <option value="radixSort">Radix Sort</option>
+        </select>
+    </div>
+
+    <div class="button-container">
+        <button id="selectedSortButton" class="sort-button" onclick="executeSelectedSort()">Bubble Sort</button>
+        <button class="sort-button" onclick="startStepMode()">Step Mode</button>
+        <button class="sort-button" onclick="setCustomInput()">Custom Input</button>
+    </div>
+
+    <div class="button-container">
+        <button id="compareButton" class="sort-button" onclick="compareAllSorts()">Compare All Sorts</button>
+    </div>
+
+    <div class="button-container">
+        <button id="resetButton" class="sort-button" onclick="resetArray()">Reset</button>
+    </div>
+
+    <div class="controls">
+        <label class="range-label" for="size">Array Size:</label>
+        <input type="range" id="size" min="5" max="50" value="20" onchange="updateArraySize(this.value)" class="range-input" />
+
+        <label class="range-label" for="speed">Sorting Speed:</label>
+        <input type="range" id="speed" min="1" max="10" value="5" class="range-input" />
+    </div>
+
+    <div class="random-input-container">
+        <label for="randomInput">Generate Random Input:</label>
+        <select id="randomInput" onchange="handleRandomInputChange()">
+            <option value="none">Select</option>
+            <option value="random">Random</option>
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+            <option value="sorted">Already Sorted</option>
+        </select>
+        <button class="sort-button" onclick="generateRandomInput()">Generate</button>
+    </div>
+
+    <!-- Display current input array -->
+    <div class="current-input-display" id="currentInputDisplay" style="margin-bottom: 20px; text-align: center; font-size: 18px; color: #00d4b5;">
+        Current Input: <span id="currentInputArray">[20 random numbers]</span>
+        <br>
+        Sorted Value: <span id="sortedValueArray">[sorted values]</span>
+    </div>
+
+    <!-- Step-by-step explanation display -->
+    <div class="step-explanation-container" id="stepExplanationContainer" style="display: none;">
+        <div class="step-explanation">
+            <h3>Current Step:</h3>
+            <p id="currentStepText">Ready to start sorting...</p>
+            <div class="step-details">
+                <span id="stepDetails"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="graph-container">
+        <div style="width: 45%; display: flex; flex-direction: column; align-items: center;">
+            <div class="graph-box" id="originalGraph"></div>
+            <div style="margin-top: 8px; color: #00d4b5; font-size: 16px;">Original Input Array</div>
+        </div>
+        <div style="width: 45%; display: flex; flex-direction: column; align-items: center;">
+            <div class="graph-box" id="sortingGraph"></div>
+            <div style="margin-top: 8px; color: #00d4b5; font-size: 16px;">Sorted Array</div>
+        </div>
+    </div>
+
+    <div class="comparison-table-container" style="margin-top: 20px; text-align: center;">
+        <h2>Comparison of Sorting Algorithms</h2>
+        <div class="comparison-results">
+            <table id="comparisonTable" border="1" style="margin: 0 auto; border-collapse: collapse; color: #f4f4f4; width: 80%;">
+                <thead>
+                    <tr>
+                        <th>Algorithm</th>
+                        <th>Number of Comparisons</th>
+                        <th>Time Complexity</th>
+                        <th>Time Taken (ms)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+            <div id="comparisonGraphContainer">
+                <canvas id="comparisonChart"></canvas>
+                <div id="bestAlgorithm" class="best-algorithm">
+                    <h3>Best Algorithm</h3>
+                    <p id="bestAlgorithmName">-</p>
+                    <p id="bestAlgorithmReason">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-toggle">
+        <button id="themeToggleButton" class="sort-button" onclick="toggleTheme()">Switch to Light Theme</button>
+    </div>
+
+    <div class="sBox">
+        <div class="Sfeature">
+            <p>Number of Comparisons: <span id="comparisons">0</span></p>
+            <p>Time Complexity: <span id="time-complexity">-</span></p>
+            <p>Time Taken: <span id="time-taken">0</span> ms</p>
+        </div>
+    </div>
+
+    <div class="custom-input-container" id="customInputContainer" style="display: none;">
+        <label for="customInput">Enter comma-separated values:</label>
+        <input type="text" id="customInput" oninput="updateCustomArray()" />
+    </div>
+
+    <!-- Add Chart.js before your script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="javascriptDAA.js"></script>
+</body>
+</html>
