@@ -1,0 +1,125 @@
+📌 Project Title
+Sorting Algorithm Visualizer
+Created by: Team Algorithm Avengers
+
+📖 Table of Contents
+Overview
+
+Team Members
+
+Features
+
+Tech Stack
+
+How It Works
+
+Setup Instructions
+
+Live Demo
+
+Screenshots
+
+Use Cases
+
+Future Enhancements
+
+License
+
+📌 Overview
+Sorting Algorithm Visualizer is a web-based tool that demonstrates the inner workings of 7 sorting algorithms through real-time animations and performance comparisons. This interactive tool is built for students and developers to learn, compare, and understand sorting visually.
+
+👨‍👩‍👧‍👦 Team Members
+Name	Role
+Saksham Godiyal	Core Coder & Lead Developer
+Payal Maletha	HTML & CSS Virtuoso
+Gaurav Singh	Algorithm Analyst & Performance Optimizer
+Ritik Bhandari	Front-End Visionary
+
+✨ Features
+🎞️ Real-time visualization of 7 algorithms
+
+Bubble, Selection, Insertion, Merge, Quick, Heap, and Radix Sort
+
+🪜 Step-by-step explanations for educational value
+
+🧠 Shows:
+
+Time complexity
+
+Number of comparisons
+
+Time taken
+
+🖊️ Custom input and random array generator
+
+🎨 Dark/Light Theme toggle
+
+📈 Performance comparison table and chart
+
+📱 Responsive and modern UI
+
+🧰 Tech Stack
+Layer	Technology
+Structure	HTML5
+Styling	CSS3
+Logic	JavaScript (ES6)
+Charts	Chart.js
+Hosting	GitHub Pages
+
+⚙️ How It Works
+Select a sorting algorithm from the dropdown.
+
+Choose input method: random, custom, ascending, descending.
+
+Adjust array size and speed with sliders.
+
+Click Start Sorting or Step Mode to visualize.
+
+View metrics like comparisons, time taken, and complexity.
+
+🖥️ Setup Instructions
+Option 1: View Online
+Live demo (GitHub Pages):
+👉 https://gauravsingh0248.github.io/Sorting-Algorithm-Visualizer/
+
+Option 2: Run Locally
+bash
+Copy code
+git clone https://github.com/GauravSingh0248/Sorting-Algorithm-Visualizer.git
+cd Sorting-Algorithm-Visualizer
+# Open index.html in your browser
+📸 Screenshots
+(You can add actual screenshots in your repo’s assets/ folder)
+
+Homepage with algorithm dropdown
+
+Visualization bars in action
+
+Step-by-step explanations panel
+
+Performance comparison table and chart
+
+🎯 Use Cases
+Computer Science learning tool
+
+DSA lab demonstrations
+
+Educational websites
+
+Interview preparation guides
+
+College mini projects
+
+🔮 Future Enhancements
+Add Shell, Tim, or Comb sort
+
+Mobile optimization
+
+Export logs as PDF
+
+Save user sessions
+
+Gamified learning (quizzes, challenges)
+
+⚖️ License
+This project is open-source and available under the MIT License.
