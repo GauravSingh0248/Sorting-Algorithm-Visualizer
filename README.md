@@ -1,3 +1,5 @@
+Live : https://gauravsingh0248.github.io/Sorting-Algorithm-Visualizer/
+
 Sorting Algorithm Visualizer
 An interactive educational tool to understand, visualize, and compare sorting algorithms in real-time.
 
@@ -6,7 +8,8 @@ An interactive educational tool to understand, visualize, and compare sorting al
 The Sorting Algorithm Visualizer is a dynamic web application built by Team Algorithm Avengers to help students and developers learn how sorting algorithms work. Users can view real-time animations of various algorithms and explore their performance characteristics.
 
 👨‍💻 Team Members
-Payal Maletha – HTML & CSS Virtuoso
+
+Payal Maletha (Team Lead) – HTML & CSS Virtuoso
 
 Gaurav Singh – Algorithm Analyst & Performance Optimizer
 
@@ -15,6 +18,7 @@ Ritik Bhandari – Front-End Visionary
 Saksham Godiyal – Core Coder & Lead Developer
 
 🚀 Features
+
 📊 Visualize 7 sorting algorithms: Bubble, Selection, Insertion, Merge, Quick, Heap, and Radix Sort.
 
 🎯 Step-by-step explanation for better conceptual clarity.
@@ -30,19 +34,19 @@ Saksham Godiyal – Core Coder & Lead Developer
 🧠 Performance comparison across all algorithms in tabular and chart formats.
 
 🧠 Educational Value
+
 This project enhances algorithm learning by turning abstract code into interactive animations. Users gain intuition about time complexity, best/worst cases, and inner workings of different sorting techniques.
 
 🛠️ Technologies Used
+
 HTML5
-
 CSS3
-
 JavaScript (Vanilla)
-
 Chart.js (for performance graphs)
 
 📁 Project Structure
 plaintext
+
 Copy
 Edit
 ├── index.html         # Main HTML layout
